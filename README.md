@@ -1,10 +1,11 @@
 # licensethis
-Add an OSS license to your project
+Add an OSS license to your project.
 
+## Usage
 
-### Usage
-	
-	licensethis [options] <command>
+```	
+$ licensethis [options] <command>
+```
 
 ### Options
 
@@ -44,15 +45,17 @@ Add an OSS license to your project
 		Add above named license to current directory. Use globally set user name and email, if defined.
                    
                    
-### Usage
+## Example Usage
+```
+$ licensethis config user.name John Doe
+```
+Sets name variable globally as John Doe, to be used in copyright headers.
 
-	licensethis config user.name John Doe
-		Sets name variable globally as John Doe, to be used in copyright headers.
-		
-	licensethis MIT
-		Add MIT license to current directory. Use globally set user name and email, if defined.
+```		
+$ licensethis MIT
+```
+Add MIT license to current directory. Use globally set user name and email, if defined.
 	
-### Notes
+## Notes
 
-	1. Choose an OSS License  
-		http://choosealicense.com/
+1. Choose an OSS License - http://choosealicense.com/

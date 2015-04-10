@@ -1,61 +1,41 @@
 # licensethis
 Add an OSS license to your project.
 
-## Usage
+## Usage:
 
-```	
-$ licensethis [options] <command>
+```
+$ licensethis command [arguments]
 ```
 
-### Options
+## Commands:
+Following are the available commands:
 
-	--help
-		Prints the synopsis and a list of the most commonly used commands.
+command | description
+---- | ----
+config | store and read user's full name from a local JSON file
+generate | generate LICENSE.txt in the current directory using stored name
+help | display help related to licensethis
+list | print list of OSS licenses with an option to list using tags
+
+**config**
 	
-	--list
-		Lists all the possible licensing options.
-		
+	$ licensethis config -n John Doe
+Generate ~/.config/licensethis/config.json file and store the name 'John Doe' in it.
+
+	$ licensethis config -s
+Read ~/.config/licensethis/config.json file and print the name from it.
+
+**generate**
+
+	$ licensethis generate -l MIT
+Generate LICENSE.txt in the current directory with MIT License.
 	
-	--tags tag1 tag2 ...
-		Will show a list of licenses with the mentioned tags. Tags can take the following values 
-		
-			attribution
-			sharealike
-			noncommercial
-			permissive
-			nonpermissive
-			copyleft
-			copyright
-			liable
- 					
-### Command
-
+**help**
 	
-	config
-		licensethis uses a simple text format to store customizations that are per user. 
-		Such a configuration file may look like this:
-		
-		; user identity
-           	[user]
-                   name = "John Doe"
-                   email = "john@doe.com"
-                   
-
-	name-of-license
-		Add above named license to current directory. Use globally set user name and email, if defined.
-                   
-                   
-## Example Usage
-```
-$ licensethis config user.name John Doe
-```
-Sets name variable globally as John Doe, to be used in copyright headers.
-
-```		
-$ licensethis MIT
-```
-Add MIT license to current directory. Use globally set user name and email, if defined.
+	$ licensethis help
+Print the help file.
 	
-## Notes
+**list**
 
-1. Choose an OSS License - http://choosealicense.com/
+	$ licensethis list [-t <tag1> <tag2> <tag3>...]
+Print a list of all OSS licenses. Additionally, provide tags to search using specific tags.

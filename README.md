@@ -27,8 +27,8 @@ Read ~/.config/licensethis/config.json file and print the name from it.
 
 **generate**
 
-	$ licensethis generate -l MIT
-Generate LICENSE.txt in the current directory with MIT License.
+	$ licensethis generate license-name
+Generate LICENSE.txt in the current directory with license-name License.
 	
 **help**
 	

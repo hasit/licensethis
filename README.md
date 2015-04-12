@@ -3,7 +3,7 @@ Add an OSS license to your project.
 
 ### SYNOPSIS
 
-`licensethis` `<option>` *`<license-name>`*<br />
+`licensethis` `<option>` `<license-name>`<br />
 `licensethis` `help`<br />
 `licensethis` `config`<br />
 `licensethis` `list`<br />

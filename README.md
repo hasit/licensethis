@@ -19,7 +19,7 @@ Add an OSS license to your project.
 These options let you do a variety of things.
 
   * `help`<br />
-	Print help file. This provides more information on usage of **licensethis** with detailed information about each option.
+	Open project page in the default browser. This provides more information on usage of **licensethis** with detailed information about each option.
   * `config`<br />
 	Configure user's full name for generating license files. User will be prompted to enter their full name for the first time. This information is stored in a JSON file at *~/.config/licensethis/user.json*.
   * `list`<br />
@@ -28,3 +28,12 @@ These options let you do a variety of things.
 	Get more information for <license-name>. This prints a synopsis of the license, tags (required, permitted, forbidden) associated to the license and a link to *http://choosealicense.com/licenses/<license-name>*.
   * `generate` `license-name`<br />
 	Generate <license-name> license for your project. This generates a LICENSE.txt file in your current directory with YEAR and FULLNAME already filled in. It picks up the name from config file automatically.
+
+## CONTRIBUTORS 
+* Hasit Mistry <br />
+	Personal: [hasit.github.io](http://hasit.github.io/) <br />
+	Github: [hasit](https://github.com/hasit)
+* Anuj Deshpande <br />
+	Personal: [anujdeshpande.com](http://www.anujdeshpande.com/) <br />
+	Github: [anujdeshpande](https://github.com/anujdeshpande/)
+	

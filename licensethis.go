@@ -29,6 +29,16 @@ func printHelp() {
 	}
 }
 
+func userConfig() {
+	configfile := "~/.config/licensethis/user.json"
+	var user string
+	if _, err := os.Stat(configfile); os.IsNotExist(err) {
+		fmt.Printf("config file:\n%v\ndoes not exist\n\n", configfile)
+		fmt.Println("Please enter your full name: ")
+		fmt.Scanf("%v", &user)
+	}
+}
+
 //parseArgs parses command line arguments and calls appropriate functions.
 func parseArgs(args []string) {
 	if len(args) != 0 {
@@ -36,7 +46,7 @@ func parseArgs(args []string) {
 		case "help":
 			printHelp()
 		case "config":
-			fmt.Println("config")
+			userConfig()
 		case "info":
 			fmt.Println("info")
 		case "list":

@@ -1,7 +1,7 @@
 # licensethis
 Add an oss license to your project.
 
-## SYNOPSIS
+### SYNOPSIS
 
 `licensethis` `<option>` `<license-name>`<br />
 `licensethis` `help`<br />
@@ -10,11 +10,11 @@ Add an oss license to your project.
 `licensethis` `info` `<license-name>`<br />
 `licensethis` `generate` `<license-name>`
 
-## DESCRIPTION
+### DESCRIPTION
 
 **licensethis** lets you add an OSS license to your project with ease.
 
-## OPTIONS
+### OPTIONS
 
 These options let you do a variety of things.
 

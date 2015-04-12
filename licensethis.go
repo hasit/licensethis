@@ -7,6 +7,7 @@ import (
 	"runtime"
 )
 
+//printHelp opens project page (http://hasit.github.io/licensethis/) in the default browser.
 func printHelp() {
 	var err error
 	switch runtime.GOOS {
@@ -28,6 +29,7 @@ func printHelp() {
 	}
 }
 
+//parseArgs parses command line arguments and calls appropriate functions.
 func parseArgs(args []string) {
 	if len(args) != 0 {
 		switch args[0] {

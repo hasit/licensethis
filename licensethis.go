@@ -35,14 +35,14 @@ func parseArgs(args []string) {
 		switch args[0] {
 		case "help":
 			printHelp()
-		case "generate":
-			fmt.Println("generate")
-		case "list":
-			fmt.Println("list")
-		case "info":
-			fmt.Println("info")
 		case "config":
 			fmt.Println("config")
+		case "info":
+			fmt.Println("info")
+		case "list":
+			fmt.Println("list")
+		case "generate":
+			fmt.Println("generate")
 		default:
 			fmt.Println("Incorrect usage!")
 			fmt.Println("Type `licensethis help` for help on proper usage.")

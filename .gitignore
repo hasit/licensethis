@@ -23,4 +23,4 @@ _testmain.go
 *.test
 *.prof
 
-*.DS_STORE
+.DS_STORE

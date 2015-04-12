@@ -1,4 +1,5 @@
-# licensethis -- add an oss license to your project
+# licensethis
+Add an oss license to your project.
 
 ## SYNOPSIS
 

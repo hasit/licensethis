@@ -3,17 +3,36 @@ package main
 import (
 	"fmt"
 	"os"
+	"os/exec"
+	"runtime"
 )
 
 func printHelp() {
-
+	var err error
+	switch runtime.GOOS {
+	case "linux":
+		err = exec.Command("xdg-open", "http://hasit.github.io/licensethis/").Start()
+		if err != nil {
+			panic(err)
+		}
+	case "windows", "darwin":
+		err = exec.Command("open", "http://hasit.github.io/licensethis/").Start()
+		if err != nil {
+			panic(err)
+		}
+	default:
+		err = fmt.Errorf("unsupported platform")
+		if err != nil {
+			panic(err)
+		}
+	}
 }
 
 func parseArgs(args []string) {
 	if len(args) != 0 {
 		switch args[0] {
 		case "help":
-			fmt.Println("help")
+			printHelp()
 		case "generate":
 			fmt.Println("generate")
 		case "list":

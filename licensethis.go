@@ -7,36 +7,43 @@ import (
 	"runtime"
 )
 
+//UserInfo stores information of user
+type UserInfo struct {
+	First string
+	Last  string
+}
+
+//Check checks for errors
+func check(e error) {
+	if e != nil {
+		panic(e)
+	}
+}
+
 //printHelp opens project page (http://hasit.github.io/licensethis/) in the default browser.
 func printHelp() {
 	var err error
 	switch runtime.GOOS {
 	case "linux":
 		err = exec.Command("xdg-open", "http://hasit.github.io/licensethis/").Start()
-		if err != nil {
-			panic(err)
-		}
+		check(err)
 	case "windows", "darwin":
 		err = exec.Command("open", "http://hasit.github.io/licensethis/").Start()
-		if err != nil {
-			panic(err)
-		}
+		check(err)
 	default:
 		err = fmt.Errorf("unsupported platform")
-		if err != nil {
-			panic(err)
-		}
+		check(err)
 	}
 }
 
 func userConfig() {
-	configfile := "~/.config/licensethis/user.json"
-	var user string
-	if _, err := os.Stat(configfile); os.IsNotExist(err) {
-		fmt.Printf("config file:\n%v\ndoes not exist\n\n", configfile)
-		fmt.Println("Please enter your full name: ")
-		fmt.Scanf("%v", &user)
-	}
+	first := os.Getenv("FIRSTNAME")
+	last := os.Getenv("LASTNAME")
+
+	//if first != nil; last != nil {
+	fmt.Printf("First: %v\n", first)
+	fmt.Printf("Last: %v\n", last)
+	//}
 }
 
 //parseArgs parses command line arguments and calls appropriate functions.

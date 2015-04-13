@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"os/exec"
-	"runtime"
 )
 
 //UserInfo stores information of user
@@ -22,18 +20,46 @@ func check(e error) {
 
 //printHelp opens project page (http://hasit.github.io/licensethis/) in the default browser.
 func printHelp() {
-	var err error
-	switch runtime.GOOS {
-	case "linux":
-		err = exec.Command("xdg-open", "http://hasit.github.io/licensethis/").Start()
-		check(err)
-	case "windows", "darwin":
-		err = exec.Command("open", "http://hasit.github.io/licensethis/").Start()
-		check(err)
-	default:
-		err = fmt.Errorf("unsupported platform")
-		check(err)
-	}
+	helptext:=`
+# licensethis
+Add an OSS license to your project.
+
+### SYNOPSIS
+
+licensethis <option> <license-name>
+licensethis help
+licensethis config
+licensethis list
+licensethis info license-name
+licensethis generate license-name
+
+DESCRIPTION
+
+licensethis lets you add an OSS license to your project with ease.
+
+OPTIONS
+
+These options let you do a variety of things.
+
+  * help
+	Open project page in the default browser. This provides more information on usage of licensethis with detailed information about each option.
+  * config
+	Configure user's full name for generating license files. User will be prompted to enter their full name for the first time. This information is stored in a JSON file at *~/.config/licensethis/user.json*.
+  * list
+	List all OSS licenses available on *http://choosealicense.com/*. This only prints a list of licenses with no more information. This could serve as a quick preview of all available licenses to choose from.
+  * info license-name
+	Get more information for <license-name>. This prints a synopsis of the license, tags (required, permitted, forbidden) associated to the license and a link to *http://choosealicense.com/licenses/<license-name>*.
+  * generate license-name
+	Generate <license-name> license for your project. This generates a LICENSE.txt file in your current directory with YEAR and FULLNAME already filled in. It picks up the name from config file automatically.
+
+## CONTRIBUTORS 
+* Hasit Mistry 
+	Personal: [hasit.github.io](http://hasit.github.io/) 
+	Github: [hasit](https://github.com/hasit)
+* Anuj Deshpande 
+	Personal: [anujdeshpande.com](http://www.anujdeshpande.com/) 
+	Github: [anujdeshpande](https://github.com/anujdeshpande/)`
+	fmt.Printf("%v",helptext)
 }
 
 func userConfig() {

@@ -3,7 +3,10 @@ package main
 import (
 	"fmt"
 	"os"
-)
+	"encoding/json"
+	"io/ioutil"
+	"log"
+	)
 
 //UserInfo stores information of user
 type UserInfo struct {
@@ -58,7 +61,7 @@ These options let you do a variety of things.
 	Github: [hasit](https://github.com/hasit)
 * Anuj Deshpande 
 	Personal: [anujdeshpande.com](http://www.anujdeshpande.com/) 
-	Github: [anujdeshpande](https://github.com/anujdeshpande/)`
+	Github: [anujdeshpande](https://github.com/anujdeshpande/)\n`
 	fmt.Printf("%v",helptext)
 }
 
@@ -71,6 +74,25 @@ func userConfig() {
 	fmt.Printf("Last: %v\n", last)
 	//}
 }
+type licenseType struct {
+	Name string `json:"name"`
+	Version int `json:"version"`
+	Text string `json:"text"`
+}
+func info(licensename []string) {
+	fmt.Printf("%v\n", licensename)
+	
+	file, e := ioutil.ReadFile("licenses.json")
+	if e != nil {
+		log.Fatal(e)
+	}
+	var l licenseType
+	err := json.Unmarshal(file, &l)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("%v\n",l)
+}
 
 //parseArgs parses command line arguments and calls appropriate functions.
 func parseArgs(args []string) {
@@ -81,7 +103,7 @@ func parseArgs(args []string) {
 		case "config":
 			userConfig()
 		case "info":
-			fmt.Println("info")
+			info(args[1:])
 		case "list":
 			fmt.Println("list")
 		case "generate":

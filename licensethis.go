@@ -76,7 +76,7 @@ func userConfig() {
 }
 
 func info(licensename []string) {
-	fmt.Printf("%v\n", licensename)
+	//fmt.Printf("%v\n", licensename[0])
 	
 	file, e := ioutil.ReadFile("licenses.json")
 	if e != nil {
@@ -90,8 +90,12 @@ func info(licensename []string) {
 	//fmt.Printf("Results: %v \n", jsontype["licenses"])
 	for i := range jsontype["licenses"] {
 		item := jsontype["licenses"][i]
-		fmt.Printf("%v\n",item["name"])
+		//fmt.Printf("%v\n",item["name"])
+		if item["name"]==licensename[0] {
+			fmt.Printf("%v\n%v\n%v", item["name"], item["version"],item["text"])
+			}
 	}
+
 }
 
 //parseArgs parses command line arguments and calls appropriate functions.

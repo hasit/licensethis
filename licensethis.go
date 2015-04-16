@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 	"os/exec"
@@ -8,9 +9,9 @@ import (
 )
 
 //UserInfo stores information of user
-type UserInfo struct {
-	First string
-	Last  string
+var userinfo struct {
+	FirstName string `json:"firstName"`
+	LastName  string `json:"lastName"`
 }
 
 //Check checks for errors
@@ -37,13 +38,25 @@ func printHelp() {
 }
 
 func userConfig() {
-	first := os.Getenv("FIRSTNAME")
-	last := os.Getenv("LASTNAME")
+	homepath := os.Getenv("HOME")
+	configpath := homepath + "/.licensethis.json"
 
-	//if first != nil; last != nil {
-	fmt.Printf("First: %v\n", first)
-	fmt.Printf("Last: %v\n", last)
-	//}
+	if _, err := os.Stat(configpath); err == nil {
+		fmt.Println("Config file exists.")
+
+		configfile, err := os.Open(configpath)
+		check(err)
+
+		jsonparser := json.NewDecoder(configfile)
+		err = jsonparser.Decode(&userinfo)
+		check(err)
+
+		fmt.Printf("Full name: %v %v\n", userinfo.FirstName, userinfo.LastName)
+		configfile.Close()
+	} else {
+		fmt.Println("Config file does not exist.")
+
+	}
 }
 
 //parseArgs parses command line arguments and calls appropriate functions.

@@ -1,12 +1,12 @@
-package main
 
+package main
 import (
 	"fmt"
 	"os"
 	"encoding/json"
 	"io/ioutil"
 	"log"
-	)
+)
 
 //UserInfo stores information of user
 type UserInfo struct {
@@ -74,11 +74,7 @@ func userConfig() {
 	fmt.Printf("Last: %v\n", last)
 	//}
 }
-type licenseType struct {
-	Name string `json:"name"`
-	Version int `json:"version"`
-	Text string `json:"text"`
-}
+
 func info(licensename []string) {
 	fmt.Printf("%v\n", licensename)
 	
@@ -86,12 +82,16 @@ func info(licensename []string) {
 	if e != nil {
 		log.Fatal(e)
 	}
-	var l licenseType
-	err := json.Unmarshal(file, &l)
-	if err != nil {
+	var jsontype map[string][]map[string]interface{}
+	err := json.Unmarshal (file,&jsontype)
+	if err!=nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("%v\n",l)
+	//fmt.Printf("Results: %v \n", jsontype["licenses"])
+	for i := range jsontype["licenses"] {
+		item := jsontype["licenses"][i]
+		fmt.Printf("%v\n",item["name"])
+	}
 }
 
 //parseArgs parses command line arguments and calls appropriate functions.

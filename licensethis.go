@@ -1,114 +1,64 @@
-
 package main
+
 import (
 	"encoding/json"
 	"fmt"
-	"os"
-	"encoding/json"
 	"io/ioutil"
 	"log"
+	"os"
 )
 
-//UserInfo stores information of user
-var userinfo struct {
-	FirstName string `json:"firstName"`
-	LastName  string `json:"lastName"`
-}
-
-//Check checks for errors
+//check() checks and panics if an error has occured
 func check(e error) {
 	if e != nil {
 		panic(e)
 	}
 }
 
-//printHelp opens project page (http://hasit.github.io/licensethis/) in the default browser.
-func printHelp() {
-	helptext:=`
-# licensethis
-Add an OSS license to your project.
+//help() prints usage, commands and examples for licensethis.
+func help() {
+	helptext := `licensethis - Choose an OSS license to your project with ease.
 
-### SYNOPSIS
-
-licensethis <option> <license-name>
+Usage:
 licensethis help
-licensethis config
 licensethis list
-licensethis info license-name
-licensethis generate license-name
+licensethis info <license-name>
+licensethis generate <license-name>
 
-DESCRIPTION
+Commands:
+help		Show this help text.
+list		Show a list of all available OSS licenses.
+info		Show more information for a license.
+generate	Generate LICENSE.txt file in current folder after asking for author name.
 
-licensethis lets you add an OSS license to your project with ease.
+Examples:
+licensethis help		Show this help text.
+licensethis info mit		Show more information for MIT license.
+licensethis generate mit	Geneate MIT license text file in current directory.\n`
 
-OPTIONS
-
-These options let you do a variety of things.
-
-  * help
-	Open project page in the default browser. This provides more information on usage of licensethis with detailed information about each option.
-  * config
-	Configure user's full name for generating license files. User will be prompted to enter their full name for the first time. This information is stored in a JSON file at *~/.config/licensethis/user.json*.
-  * list
-	List all OSS licenses available on *http://choosealicense.com/*. This only prints a list of licenses with no more information. This could serve as a quick preview of all available licenses to choose from.
-  * info license-name
-	Get more information for <license-name>. This prints a synopsis of the license, tags (required, permitted, forbidden) associated to the license and a link to *http://choosealicense.com/licenses/<license-name>*.
-  * generate license-name
-	Generate <license-name> license for your project. This generates a LICENSE.txt file in your current directory with YEAR and FULLNAME already filled in. It picks up the name from config file automatically.
-
-## CONTRIBUTORS 
-* Hasit Mistry 
-	Personal: [hasit.github.io](http://hasit.github.io/) 
-	Github: [hasit](https://github.com/hasit)
-* Anuj Deshpande 
-	Personal: [anujdeshpande.com](http://www.anujdeshpande.com/) 
-	Github: [anujdeshpande](https://github.com/anujdeshpande/)\n`
-	fmt.Printf("%v",helptext)
-}
-
-func userConfig() {
-	homepath := os.Getenv("HOME")
-	configpath := homepath + "/.licensethis.json"
-
-	if _, err := os.Stat(configpath); err == nil {
-		fmt.Println("Config file exists.")
-
-		configfile, err := os.Open(configpath)
-		check(err)
-
-		jsonparser := json.NewDecoder(configfile)
-		err = jsonparser.Decode(&userinfo)
-		check(err)
-
-		fmt.Printf("Full name: %v %v\n", userinfo.FirstName, userinfo.LastName)
-		configfile.Close()
-	} else {
-		fmt.Println("Config file does not exist.")
-
-	}
+	fmt.Printf("%v", helptext)
 }
 
 func info(licensename []string) {
 	//fmt.Printf("%v\n", licensename[0])
-	
+
 	file, e := ioutil.ReadFile("licenses.json")
 	if e != nil {
 		log.Fatal(e)
 	}
 	var jsontype map[string][]map[string]interface{}
-	err := json.Unmarshal (file,&jsontype)
-	if err!=nil {
+	err := json.Unmarshal(file, &jsontype)
+	if err != nil {
 		log.Fatal(err)
 	}
 	//fmt.Printf("Results: %v \n", jsontype["licenses"])
 	for i := range jsontype["licenses"] {
 		item := jsontype["licenses"][i]
 		//fmt.Printf("%v\n",item["name"])
-		if item["name"]==licensename[0] {
-			fmt.Printf("%v\n%v\n%v", item["name"], item["version"],item["text"])
-			}
+		if item["name"] == licensename[0] {
+			fmt.Printf("%v\n%v\n%v", item["name"], item["version"], item["text"])
+		}
 	}
-
 }
 
 //parseArgs parses command line arguments and calls appropriate functions.
@@ -116,9 +66,7 @@ func parseArgs(args []string) {
 	if len(args) != 0 {
 		switch args[0] {
 		case "help":
-			printHelp()
-		case "config":
-			userConfig()
+			help()
 		case "info":
 			info(args[1:])
 		case "list":
@@ -137,6 +85,5 @@ func parseArgs(args []string) {
 
 func main() {
 	args := os.Args[1:]
-
 	parseArgs(args)
 }

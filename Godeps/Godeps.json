@@ -1,0 +1,5 @@
+{
+	"ImportPath": "github.com/hasit/licensethis",
+	"GoVersion": "go1.4.2",
+	"Deps": []
+}

@@ -1,19 +1,397 @@
 {
-    "licenses": [
-	{
-	    "name": "MIT",
-	    "version": 1,
-	    "text": "The MIT License (MIT)\r\n\r\nCopyright (c) <year> <copyright holders>\r\n\r\nPermission is hereby granted, free of charge, to any person obtaining a copy\r\nof this software and associated documentation files (the \"Software\"), to deal\r\nin the Software without restriction, including without limitation the rights\r\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\r\ncopies of the Software, and to permit persons to whom the Software is\r\nfurnished to do so, subject to the following conditions:\r\n\r\nThe above copyright notice and this permission notice shall be included in\r\nall copies or substantial portions of the Software.\r\n\r\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\r\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\r\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\r\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\r\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\r\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\r\nTHE SOFTWARE.\r\n"
-	},
-	{
-	    "name": "Apache",
-	    "version": 2,
-	    "text": "Copyright {yyyy} {name of copyright owner}\r\n\r\nLicensed under the Apache License, Version 2.0 (the \"License\");\r\nyou may not use this file except in compliance with the License.\r\nYou may obtain a copy of the License at\r\n\r\nhttp://www.apache.org/licenses/LICENSE-2.0 \r\n\r\nUnless required by applicable law or agreed to in writing, software\r\ndistributed under the License is distributed on an \"AS IS\" BASIS,\r\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\r\nSee the License for the specific language governing permissions and\r\nlimitations under the License.\r\n"
-	},
-	{
-	    "name": "GPL",
-	    "version": 2,
-	    "text": "Copyright {yyyy} {name of copyright owner}\r\n\r\nLicensed under the Apache License, Version 2.0 (the \"License\");\r\nyou may not use this file except in compliance with the License.\r\nYou may obtain a copy of the License at\r\n\r\nhttp://www.apache.org/licenses/LICENSE-2.0 \r\n\r\nUnless required by applicable law or agreed to in writing, software\r\ndistributed under the License is distributed on an \"AS IS\" BASIS,\r\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\r\nSee the License for the specific language governing permissions and\r\nlimitations under the License.\r\n"
-	}
-    ]
+    "licenselist" : {
+        "agpl-3.0" : "GNU Affero General Public License v3.0",
+        "apache-2.0" : "Apache License 2.0",
+        "artistic-2.0" : "Artistic License 2.0",
+        "bsd-2-clause" : "BSD 2-clause Simplified License",
+        "bsd-3-clause" : "BSD 3-clause New or Revised License",
+        "cc0-1.0" : "Creative Commons Zero v1.0 Universal",
+        "epl-1.0" : "Eclipse Public License 1.0",
+        "gpl-2.0" : "GNU General Public License v2.0",
+        "gpl-3.0" : "GNU General Public License v3.0",
+        "isc" : "ISC License",
+        "lgpl-2.1" : "GNU Lesser General Public License v2.1",
+        "lgpl-3.0" : "GNU Lesser General Public License v3.0",
+        "mit" : "MIT License",
+        "mpl-2.0" : "Mozilla Public License 2.0",
+        "no-license" : "No License",
+        "unlicense" : "The Unlicense"
+    },
+
+    "licenses" : {
+        "agpl-3.0" : {
+            "title" : "GNU Affero General Public License v3.0",
+            "category" : "GPL",
+            "source" : "http://www.gnu.org/licenses/agpl-3.0.txt",
+            "description" : "The GPL family of licenses is the most widely used free software license and has a strong copyleft requirement. When distributing derived works, the source code of the work must be made available under the same license. The AGPL family of licenses is distinguished from GPLv2 and GPLv3 in that hosted services using the code are considered distribution and trigger the copyleft requirements.",
+            "tags" : {
+                "required" : [
+                    "include-copyright",
+                    "document-changes",
+                    "disclose-source",
+                    "network-use-disclose"
+                ],
+                "permitted" : [
+                    "commercial-use",
+                    "modifications",
+                    "distribution",
+                    "patent-grant",
+                    "private-use"
+                ],
+                "forbidden" : [
+                    "no-liability",
+                    "no-sublicense"
+                ]
+            }
+        },
+
+        "apache-2.0" : {
+            "title" : "Apache License 2.0",
+            "category" : "Apache",
+            "source" : "http://www.apache.org/licenses/LICENSE-2.0.html",
+            "description" : "A permissive license that also provides an express grant of patent rights from contributors to users.",
+            "tags" : {
+                "required" : [
+                    "include-copyright",
+                    "document-changes"
+                ],
+                "permitted" : [
+                    "commercial-use",
+                    "modifications",
+                    "distribution",
+                    "sublicense",
+                    "patent-grant",
+                    "private-use"
+                ],
+                "forbidden" : [
+                    "trademark-use",
+                    "no-liability"
+                ]
+            }
+        },
+
+        "artistic-2.0" : {
+            "title" : "Artistic License 2.0",
+            "category" : "Artistic",
+            "source" : "http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt",
+            "description" : "Heavily favored by the Perl community, the Artistic license requires that modified versions of the software do not prevent users from running the standard version.",
+            "tags" : {
+                "required" : [
+                    "include-copyright",
+                    "document-changes"
+                ],
+                "permitted" : [
+                    "commercial-use",
+                    "modifications",
+                    "distribution",
+                    "sublicense",
+                    "private-use"
+                ],
+                "forbidden" : [
+                    "trademark-use",
+                    "no-liability"
+                ]
+            }
+        },
+
+        "bsd-2-clause" : {
+            "title" : "BSD 2-clause Simplified License",
+            "category" : "BSD",
+            "source" : "http://opensource.org/licenses/BSD-2-Clause",
+            "description" : "A permissive license that comes in two variants, the BSD 2-Clause and BSD 3-Clause. Both have very minute differences to the MIT license.",
+            "tags" : {
+                "required" : [
+                    "include-copyright"
+                ],
+                "permitted" : [
+                    "commercial-use",
+                    "modifications",
+                    "distribution",
+                    "sublicense",
+                    "private-use"
+                ],
+                "forbidden" : [
+                    "no-liability"
+                ]
+            }
+        },
+
+        "bsd-3-clause" : {
+            "title" : "BBSD 3-clause New or Revised License",
+            "category" : "BSD",
+            "source" : "http://opensource.org/licenses/BSD-3-Clause",
+            "description" : "A permissive license that comes in two variants, the BSD 2-Clause and BSD 3-Clause. Both have very minute differences to the MIT license.",
+            "tags" : {
+                "required" : [
+                    "include-copyright"
+                ],
+                "permitted" : [
+                    "commercial-use",
+                    "modifications",
+                    "distribution",
+                    "sublicense",
+                    "private-use"
+                ],
+                "forbidden" : [
+                    "no-liability",
+                    "trademark-use"
+                ]
+            }
+        },
+
+        "cc0-1.0" : {
+            "title" : "Creative Commons Zero v1.0 Universal",
+            "category" : "Public Domain Dedication",
+            "source" : "http://creativecommons.org/publicdomain/zero/1.0/",
+            "description" : "The Creative Commons CC0 Public Domain Dedication waives copyright interest in any a work you've created and dedicates it to the world-wide public domain. Use CC0 to opt out of copyright entirely and ensure your work has the widest reach. As with the Unlicense and typical software licenses, CC0 disclaims warranties. CC0 is very similar to the Unlicense.",
+            "tags" : {
+                "required" : [
+                ],
+                "permitted" : [
+                    "commercial-use",
+                    "modifications",
+                    "distribution",
+                    "private-use"
+                ],
+                "forbidden" : [
+                    "no-liability"
+                ]
+            }
+        },
+
+        "epl-1.0" : {
+            "title" : "Eclipse Public License 1.0",
+            "category" : "Eclipse",
+            "source" : "http://www.eclipse.org/legal/epl-v10.html",
+            "description" : "This commercially-friendly copyleft license provides the ability to commercially license binaries; a modern royalty-free patent license grant; and the ability for linked works to use other licenses, including commercial ones.",
+            "tags" : {
+                "required" : [
+                    "disclose-source",
+                    "include-copyright"
+                ],
+                "permitted" : [
+                    "commercial-use",
+                    "modifications",
+                    "distribution",
+                    "private-use",
+                    "sublicense",
+                    "patent-grant"
+                ],
+                "forbidden" : [
+                    "no-liability"
+                ]
+            }
+        },
+
+        "gpl-2.0" : {
+            "title" : "GNU General Public License v2.0",
+            "category" : "GPL",
+            "source" : "http://www.gnu.org/licenses/gpl-2.0.txt",
+            "description" : "GPL is the most widely used free software license and has a strong copyleft requirement. When distributing derived works, the source code of the work must be made available under the same license. There are multiple variants of the GPL, each with different requirements.",
+            "tags" : {
+                "required" : [
+                    "disclose-source",
+                    "document-changes",
+                    "include-copyright"
+                ],
+                "permitted" : [
+                    "commercial-use",
+                    "modifications",
+                    "distribution",
+                    "private-use",
+                    "patent-grant"
+                ],
+                "forbidden" : [
+                    "no-liability",
+                    "no-sublicense"
+                ]
+            }
+        },
+
+        "gpl-3.0" : {
+            "title" : "GNU General Public License v3.0",
+            "category" : "GPL",
+            "source" : "http://www.gnu.org/licenses/gpl-3.0.txt",
+            "description" : "GPL is the most widely used free software license and has a strong copyleft requirement. When distributing derived works, the source code of the work must be made available under the same license. There are multiple variants of the GPL, each with different requirements.",
+            "tags" : {
+                "required" : [
+                    "disclose-source",
+                    "document-changes",
+                    "include-copyright"
+                ],
+                "permitted" : [
+                    "commercial-use",
+                    "modifications",
+                    "distribution",
+                    "private-use",
+                    "patent-grant"
+                ],
+                "forbidden" : [
+                    "no-liability",
+                    "no-sublicense"
+                ]
+            }
+        },
+
+        "isc" : {
+            "title" : "ISC License",
+            "category" : "BSD",
+            "source" : "http://opensource.org/licenses/isc-license",
+            "description" : "A permissive license lets people do anything with your code with proper attribution and without warranty. The ISC license is functionally equivalent to the BSD 2-Clause and MIT licenses, removing some language that is no longer necessary.",
+            "tags" : {
+                "required" : [
+                    "include-copyright"
+                ],
+                "permitted" : [
+                    "commercial-use",
+                    "distribution",
+                    "modifications",
+                    "private-use",
+                    "sublicense"
+                ],
+                "forbidden" : [
+                    "no-liability"
+                ]
+            }
+        },
+
+        "lgpl-2.1" : {
+            "title" : "GNU Lesser General Public License v2.1",
+            "category" : "LGPL",
+            "source" : "http://www.gnu.org/licenses/lgpl-2.1.txt",
+            "description" : "Primarily used for software libraries, LGPL requires that derived works be licensed under the same license, but works that only link to it do not fall under this restriction. There are two commonly used versions of the LGPL.",
+            "tags" : {
+                "required" : [
+                    "include-copyright",
+                    "library-usage",
+                    "disclose-source"
+                ],
+                "permitted" : [
+                    "commercial-use",
+                    "modifications",
+                    "distribution",
+                    "sublicense",
+                    "patent-grant",
+                    "private-use"
+                ],
+                "forbidden" : [
+                    "no-liability"
+                ]
+            }
+        },
+
+        "lgpl-3.0" : {
+            "title" : "GNU Lesser General Public License v3.0",
+            "category" : "LGPL",
+            "source" : "http://www.gnu.org/licenses/lgpl-3.0.txt",
+            "description" : "Version 3 of the LGPL is an additional set of permissions to the GPL v3 license that requires that derived works be licensed under the same license, but works that only link to it do not fall under this restriction.",
+            "tags" : {
+                "required" : [
+                    "include-copyright",
+                    "library-usage",
+                    "disclose-source"
+                ],
+                "permitted" : [
+                    "commercial-use",
+                    "modifications",
+                    "distribution",
+                    "sublicense",
+                    "patent-grant",
+                    "private-use"
+                ],
+                "forbidden" : [
+                    "no-liability"
+                ]
+            }
+        },
+
+        "mit" : {
+            "title" : "MIT License",
+            "category" : "MIT",
+            "source" : "http://opensource.org/licenses/MIT",
+            "description" : "A permissive license that is short and to the point. It lets people do anything with your code with proper attribution and without warranty.",
+            "tags" : {
+                "required" : [
+                    "include-copyright"
+                ],
+                "permitted" : [
+                    "commercial-use",
+                    "modifications",
+                    "distribution",
+                    "sublicense",
+                    "private-use"
+                ],
+                "forbidden" : [
+                    "no-liability"
+                ]
+            }
+        },
+
+        "mpl-2.0" : {
+            "title" : "Mozilla Public License 2.0",
+            "category" : "Mozilla",
+            "source" : "http://www.mozilla.org/MPL/2.0/",
+            "description" : "The Mozilla Public License (MPL 2.0) is maintained by the Mozilla foundation. This license attempts to be a compromise between the permissive BSD license and the reciprocal GPL license.",
+            "tags" : {
+                "required" : [
+                    "disclose-source",
+                    "include-copyright"
+                ],
+                "permitted" : [
+                    "commercial-use",
+                    "modifications",
+                    "distribution",
+                    "sublicense",
+                    "patent-grant",
+                    "private-use"
+                ],
+                "forbidden" : [
+                    "no-liability",
+                    "trademark-use"
+                ]
+            }
+        },
+
+        "no-license" : {
+            "title" : "No License",
+            "category" : "No License",
+            "source" : "",
+            "description" : "You retain all rights and do not permit distribution, reproduction, or derivative works. You may grant some rights in cases where you publish your source code to a site that requires accepting terms of service. For example, publishing code in a public repository on GitHub requires that you allow others to view and fork your code.",
+            "tags" : {
+                "required" : [
+                    "include-copyright"
+                ],
+                "permitted" : [
+                    "commercial-use",
+                    "private-use"
+                ],
+                "forbidden" : [
+                    "modifications",
+                    "distribution",
+                    "sublicense"
+                ]
+            }
+        },
+
+        "unlicense" : {
+            "title" : "The Unlicense",
+            "category" : "Public Domain Dedication",
+            "source" : "http://unlicense.org/UNLICENSE",
+            "description" : "Because copyright is automatic in most countries, the Unlicense is a template to waive copyright interest in software you've written and dedicate it to the public domain. Use the Unlicense to opt out of copyright entirely. It also includes the no-warranty statement from the MIT/X11 license.",
+            "tags" : {
+                "required" : [
+                ],
+                "permitted" : [
+                    "private-use",
+                    "commercial-use",
+                    "modifications",
+                    "distribution",
+                    "sublicense"
+                ],
+                "forbidden" : [
+                    "no-liability"
+                ]
+            }
+        }
+    }
 }

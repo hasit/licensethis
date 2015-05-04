@@ -1,18 +1,24 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"os"
 )
 
-//check() checks and panics if an error has occured
+//Licenselist holds short and long names of licenses
+type Licenselist []struct {
+	Short string `json:"short"`
+	Long  string `json:"long"`
+}
+
 func check(e error) {
 	if e != nil {
 		panic(e)
 	}
 }
 
-//help() prints usage, commands and examples for licensethis.
 func help() {
 	helptext := `licensethis - Choose an OSS license for your project with ease.
 
@@ -59,48 +65,29 @@ func info(licensename string) {
 }
 
 func list() {
+	gopath := os.Getenv("GOPATH")
+	licensethispath := gopath + "/src/github.com/hasit/licensethis/"
+	listfilepath := licensethispath + "/licenselist.json"
+	file, err := ioutil.ReadFile(listfilepath)
+	check(err)
+
+	var licenselist Licenselist
+	e := json.Unmarshal(file, &licenselist)
+	check(e)
+
 	fmt.Println("List of all available OSS licenses:")
+	for i := range licenselist {
+		fmt.Printf("%v - %v\n", licenselist[i].Short, licenselist[i].Long)
+	}
 }
 
 func generate(licensename string) {
 	fmt.Println(licensename)
 }
 
-//parseArgs parses command line arguments and calls appropriate functions.
+// !!---FUTURE---!!
+//might have to look into a way to accept more than one license name for `info`.
 func parseArgs(args []string) {
-	// if len(args) != 0 {
-	// 	switch args[0] {
-	// 	case "help":
-	// 		help()
-	// 	case "info":
-	// 		if len(args) != 2 {
-	// 			fmt.Println("Incorrect usage!")
-	// 			fmt.Println("Please provide name of the license for which more information is required.")
-	// 			fmt.Println("Type `licensethis help` for help on proper usage.")
-	// 		} else {
-	// 			info(args[1])
-	// 		}
-	// 	case "list":
-	// 		list()
-	// 	case "generate":
-	// 		if len(args) != 2 {
-	// 			fmt.Println("Incorrect usage!")
-	// 			fmt.Println("Please provide name of the license to generate a license file.")
-	// 			fmt.Println("Type `licensethis help` for help on proper usage.")
-	// 		} else {
-	// 			generate(args[1])
-	// 		}
-	// 	default:
-	// 		fmt.Println("Incorrect usage!")
-	// 		fmt.Println("Type `licensethis help` for help on proper usage.")
-	// 	}
-	// }
-
-	//better structed version of the above block. but very strict. does not give personalized error messages.
-	//for example, generate should print more help regarding generate usage
-
-	// !!---FUTURE---!!
-	//might have to look into a way to accept more than one license name for `info`.
 	if len(args) == 1 {
 		switch args[0] {
 		case "help":

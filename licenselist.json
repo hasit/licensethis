@@ -1,0 +1,66 @@
+[
+    {
+        "short" : "agpl-3.0",
+        "long" : "GNU Affero General Public License v3.0"
+    },
+    {
+        "short" : "apache-2.0",
+        "long" : "Apache License 2.0"
+    },
+    {
+        "short" : "artistic-2.0",
+        "long" : "Artistic License 2.0"
+    },
+    {
+        "short" : "bsd-2-clause",
+        "long" : "BSD 2-clause Simplified License"
+    },
+    {
+        "short" : "bsd-3-clause",
+        "long" : "BSD 3-clause New or Revised License"
+    },
+    {
+        "short" : "cc0-1.0",
+        "long" : "Creative Commons Zero v1.0 Universal"
+    },
+    {
+        "short" : "epl-1.0",
+        "long" : "Eclipse Public License 1.0"
+    },
+    {
+        "short" : "gpl-2.0",
+        "long" : "GNU General Public License v2.0"
+    },
+    {
+        "short" : "gpl-3.0",
+        "long" : "GNU General Public License v3.0"
+    },
+    {
+        "short" : "isc",
+        "long" : "ISC License"
+    },
+    {
+        "short" : "lgpl-2.1",
+        "long" : "GNU Lesser General Public License v2.1"
+    },
+    {
+        "short" : "lgpl-3.0",
+        "long" : "GNU Lesser General Public License v3.0"
+    },
+    {
+        "short" : "mit",
+        "long" : "MIT License"
+    },
+    {
+        "short" : "mpl-2.0",
+        "long" : "Mozilla Public License 2.0"
+    },
+    {
+        "short" : "no-license",
+        "long" : "No License"
+    },
+    {
+        "short" : "unlicense",
+        "long" : "The Unlicense"
+    }
+]

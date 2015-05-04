@@ -80,25 +80,36 @@ func list() {
 }
 
 func info(licensename string) {
-	//fmt.Printf("%v\n", licensename[0])
-	fmt.Println(licensename)
-	// file, e := ioutil.ReadFile("licenses.json")
-	// if e != nil {
-	// 	log.Fatal(e)
-	// }
-	// var jsontype map[string][]map[string]interface{}
-	// err := json.Unmarshal(file, &jsontype)
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	// //fmt.Printf("Results: %v \n", jsontype["licenses"])
-	// for i := range jsontype["licenses"] {
-	// 	item := jsontype["licenses"][i]
-	// 	//fmt.Printf("%v\n",item["name"])
-	// 	if item["name"] == licensename[0] {
-	// 		fmt.Printf("%v\n%v\n%v", item["name"], item["version"], item["text"])
-	// 	}
-	// }
+	infofilepath := getfilepath("licenseinfo.json")
+	file, err1 := ioutil.ReadFile(infofilepath)
+	check(err1)
+
+	var licenseinfo Licenseinfo
+	err2 := json.Unmarshal(file, &licenseinfo)
+	check(err2)
+
+	for i := range licenseinfo {
+		if licenseinfo[i].Name == licensename {
+			fmt.Printf("Title: %v\n", licenseinfo[i].Title)
+			fmt.Printf("Category: %v\n", licenseinfo[i].Category)
+			fmt.Printf("Source: %v\n", licenseinfo[i].Source)
+			fmt.Printf("Description: %v\n", licenseinfo[i].Description)
+			fmt.Println("Tags: ")
+			fmt.Println("  Required: ")
+			for r := range licenseinfo[i].Tags.Required {
+				fmt.Printf("    -%v\n", licenseinfo[i].Tags.Required[r])
+			}
+			fmt.Println("  Permitted: ")
+			for r := range licenseinfo[i].Tags.Permitted {
+				fmt.Printf("    -%v\n", licenseinfo[i].Tags.Permitted[r])
+			}
+			fmt.Println("  Forbidden: ")
+			for r := range licenseinfo[i].Tags.Forbidden {
+				fmt.Printf("    -%v\n", licenseinfo[i].Tags.Forbidden[r])
+			}
+
+		}
+	}
 }
 
 func generate(licensename string) {

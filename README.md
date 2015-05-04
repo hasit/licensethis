@@ -3,6 +3,13 @@ licensethis
 
 Choose an OSS license for your project with ease.
 
+Setup
+-----
+
+```
+go get github.com/hasit/licensethis
+```
+
 Usage
 -----
 
@@ -28,7 +35,7 @@ Examples
 
 `$ licensethis generate mit`<br /> Generate MIT license text file in current directory.
 
-CONTRIBUTORS
+Contributors
 ------------
 
 -	Hasit Mistry <br /> Personal: [hasit.github.io](http://hasit.github.io/) <br /> Github: [hasit](https://github.com/hasit)

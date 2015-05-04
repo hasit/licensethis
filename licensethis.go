@@ -33,6 +33,14 @@ func check(e error) {
 	}
 }
 
+func getfilepath(filename string) string {
+	gopath := os.Getenv("GOPATH")
+	licensethispath := gopath + "/src/github.com/hasit/licensethis/"
+	filepath := licensethispath + filename
+
+	return filepath
+}
+
 func help() {
 	helptext := `licensethis - Choose an OSS license for your project with ease.
 
@@ -56,6 +64,21 @@ licensethis generate mit	Geneate MIT license text file in current directory.`
 	fmt.Printf("%v\n", helptext)
 }
 
+func list() {
+	listfilepath := getfilepath("licenselist.json")
+	file, err1 := ioutil.ReadFile(listfilepath)
+	check(err1)
+
+	var licenselist Licenselist
+	err2 := json.Unmarshal(file, &licenselist)
+	check(err2)
+
+	fmt.Println("List of all available OSS licenses:")
+	for i := range licenselist {
+		fmt.Printf("%d. %v - %v\n", i, licenselist[i].Short, licenselist[i].Long)
+	}
+}
+
 func info(licensename string) {
 	//fmt.Printf("%v\n", licensename[0])
 	fmt.Println(licensename)
@@ -76,23 +99,6 @@ func info(licensename string) {
 	// 		fmt.Printf("%v\n%v\n%v", item["name"], item["version"], item["text"])
 	// 	}
 	// }
-}
-
-func list() {
-	gopath := os.Getenv("GOPATH")
-	licensethispath := gopath + "/src/github.com/hasit/licensethis/"
-	listfilepath := licensethispath + "/licenselist.json"
-	file, err := ioutil.ReadFile(listfilepath)
-	check(err)
-
-	var licenselist Licenselist
-	e := json.Unmarshal(file, &licenselist)
-	check(e)
-
-	fmt.Println("List of all available OSS licenses:")
-	for i := range licenselist {
-		fmt.Printf("%v - %v\n", licenselist[i].Short, licenselist[i].Long)
-	}
 }
 
 func generate(licensename string) {

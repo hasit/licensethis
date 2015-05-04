@@ -109,10 +109,6 @@ func info(licensename string) {
 			for r := range licenseinfo[i].Tags.Forbidden {
 				fmt.Printf("    -%v\n", licenseinfo[i].Tags.Forbidden[r])
 			}
-		} else {
-			fmt.Println("No such license found!")
-			fmt.Println("Try `licensethis list` and use the exact short name.")
-			break
 		}
 	}
 }

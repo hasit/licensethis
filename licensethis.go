@@ -5,16 +5,17 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"strings"
 )
 
 //Licenselist holds short and long names of licenses
-type Licenselist []struct {
+type Licenselist struct {
 	Short string `json:"short"`
 	Long  string `json:"long"`
 }
 
 //Licenseinfo holds information of licenses
-type Licenseinfo []struct {
+type Licenseinfo struct {
 	Name        string `json:"name"`
 	Title       string `json:"title"`
 	Category    string `json:"category"`
@@ -69,7 +70,7 @@ func list() {
 	file, err1 := ioutil.ReadFile(listfilepath)
 	check(err1)
 
-	var licenselist Licenselist
+	var licenselist []Licenselist
 	err2 := json.Unmarshal(file, &licenselist)
 	check(err2)
 
@@ -86,12 +87,12 @@ func info(licensename string) {
 	file, err1 := ioutil.ReadFile(infofilepath)
 	check(err1)
 
-	var licenseinfo Licenseinfo
+	var licenseinfo []Licenseinfo
 	err2 := json.Unmarshal(file, &licenseinfo)
 	check(err2)
 
 	for i := range licenseinfo {
-		if licenseinfo[i].Name == licensename {
+		if strings.Contains(licenseinfo[i].Name, licensename) {
 			fmt.Printf("Title: %v\n", licenseinfo[i].Title)
 			fmt.Printf("Category: %v\n", licenseinfo[i].Category)
 			fmt.Printf("Source: %v\n", licenseinfo[i].Source)
@@ -109,6 +110,7 @@ func info(licensename string) {
 			for r := range licenseinfo[i].Tags.Forbidden {
 				fmt.Printf("    -%v\n", licenseinfo[i].Tags.Forbidden[r])
 			}
+			fmt.Printf("\n")
 		}
 	}
 }

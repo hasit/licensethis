@@ -13,6 +13,20 @@ type Licenselist []struct {
 	Long  string `json:"long"`
 }
 
+//Licenseinfo holds information of licenses
+type Licenseinfo []struct {
+	Name        string `json:"name"`
+	Title       string `json:"title"`
+	Category    string `json:"category"`
+	Source      string `json:"source"`
+	Description string `json:"description"`
+	Tags        struct {
+		Required  []string `json:"required"`
+		Permitted []string `json:"permitted"`
+		Forbidden []string `json:"forbidden"`
+	} `json:"tags"`
+}
+
 func check(e error) {
 	if e != nil {
 		panic(e)

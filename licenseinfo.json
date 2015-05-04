@@ -1,5 +1,6 @@
-{
-    "agpl-3.0" : {
+[
+    {
+        "name" : "agpl-3.0",
         "title" : "GNU Affero General Public License v3.0",
         "category" : "GPL",
         "source" : "http://www.gnu.org/licenses/agpl-3.0.txt",
@@ -25,7 +26,8 @@
         }
     },
 
-    "apache-2.0" : {
+    {
+        "name" : "apache-2.0",
         "title" : "Apache License 2.0",
         "category" : "Apache",
         "source" : "http://www.apache.org/licenses/LICENSE-2.0.html",
@@ -50,7 +52,8 @@
         }
     },
 
-    "artistic-2.0" : {
+    {
+        "name" : "artistic-2.0",
         "title" : "Artistic License 2.0",
         "category" : "Artistic",
         "source" : "http://www.perlfoundation.org/attachment/legal/artistic-2_0.txt",
@@ -74,7 +77,8 @@
         }
     },
 
-    "bsd-2-clause" : {
+    {
+        "name" : "bsd-2-clause",
         "title" : "BSD 2-clause Simplified License",
         "category" : "BSD",
         "source" : "http://opensource.org/licenses/BSD-2-Clause",
@@ -96,7 +100,8 @@
         }
     },
 
-    "bsd-3-clause" : {
+    {
+        "name" : "bsd-3-clause",
         "title" : "BBSD 3-clause New or Revised License",
         "category" : "BSD",
         "source" : "http://opensource.org/licenses/BSD-3-Clause",
@@ -119,7 +124,8 @@
         }
     },
 
-    "cc0-1.0" : {
+    {
+        "name" : "cc0-1.0",
         "title" : "Creative Commons Zero v1.0 Universal",
         "category" : "Public Domain Dedication",
         "source" : "http://creativecommons.org/publicdomain/zero/1.0/",
@@ -139,7 +145,8 @@
         }
     },
 
-    "epl-1.0" : {
+    {
+        "name" : "epl-1.0",
         "title" : "Eclipse Public License 1.0",
         "category" : "Eclipse",
         "source" : "http://www.eclipse.org/legal/epl-v10.html",
@@ -163,7 +170,8 @@
         }
     },
 
-    "gpl-2.0" : {
+    {
+        "name" : "gpl-2.0",
         "title" : "GNU General Public License v2.0",
         "category" : "GPL",
         "source" : "http://www.gnu.org/licenses/gpl-2.0.txt",
@@ -188,7 +196,8 @@
         }
     },
 
-    "gpl-3.0" : {
+    {
+        "name" : "gpl-3.0",
         "title" : "GNU General Public License v3.0",
         "category" : "GPL",
         "source" : "http://www.gnu.org/licenses/gpl-3.0.txt",
@@ -213,7 +222,8 @@
         }
     },
 
-    "isc" : {
+    {
+        "name" : "isc",
         "title" : "ISC License",
         "category" : "BSD",
         "source" : "http://opensource.org/licenses/isc-license",
@@ -235,7 +245,8 @@
         }
     },
 
-    "lgpl-2.1" : {
+    {
+        "name" : "lgpl-2.1",
         "title" : "GNU Lesser General Public License v2.1",
         "category" : "LGPL",
         "source" : "http://www.gnu.org/licenses/lgpl-2.1.txt",
@@ -260,7 +271,8 @@
         }
     },
 
-    "lgpl-3.0" : {
+    {
+        "name" : "lgpl-3.0",
         "title" : "GNU Lesser General Public License v3.0",
         "category" : "LGPL",
         "source" : "http://www.gnu.org/licenses/lgpl-3.0.txt",
@@ -285,7 +297,8 @@
         }
     },
 
-    "mit" : {
+    {
+        "name" : "mit",
         "title" : "MIT License",
         "category" : "MIT",
         "source" : "http://opensource.org/licenses/MIT",
@@ -307,7 +320,8 @@
         }
     },
 
-    "mpl-2.0" : {
+    {
+        "name" : "mpl-2.0",
         "title" : "Mozilla Public License 2.0",
         "category" : "Mozilla",
         "source" : "http://www.mozilla.org/MPL/2.0/",
@@ -332,7 +346,8 @@
         }
     },
 
-    "no-license" : {
+    {
+        "name" : "no-license",
         "title" : "No License",
         "category" : "No License",
         "source" : "",
@@ -353,7 +368,8 @@
         }
     },
 
-    "unlicense" : {
+    {
+        "name" : "unlicense",
         "title" : "The Unlicense",
         "category" : "Public Domain Dedication",
         "source" : "http://unlicense.org/UNLICENSE",
@@ -373,4 +389,4 @@
             ]
         }
     }
-}
+]

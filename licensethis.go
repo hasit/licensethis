@@ -91,8 +91,10 @@ func info(licensename string) {
 	err2 := json.Unmarshal(file, &licenseinfo)
 	check(err2)
 
+	var closelicensenames []string
+
 	for i := range licenseinfo {
-		if strings.Contains(licenseinfo[i].Name, licensename) {
+		if licenseinfo[i].Name == licensename {
 			fmt.Printf("Title: %v\n", licenseinfo[i].Title)
 			fmt.Printf("Category: %v\n", licenseinfo[i].Category)
 			fmt.Printf("Source: %v\n", licenseinfo[i].Source)
@@ -110,8 +112,19 @@ func info(licensename string) {
 			for r := range licenseinfo[i].Tags.Forbidden {
 				fmt.Printf("    -%v\n", licenseinfo[i].Tags.Forbidden[r])
 			}
-			fmt.Printf("\n")
+			return
+		} else if strings.Contains(licenseinfo[i].Name, licensename) {
+			closelicensenames = append(closelicensenames, licenseinfo[i].Name)
 		}
+	}
+	if len(closelicensenames) != 0 {
+		fmt.Println("Did you mean any of these?")
+		for i := range closelicensenames {
+			fmt.Printf("%v\n", closelicensenames[i])
+		}
+	} else {
+		fmt.Println("No such license was found")
+		fmt.Println("Type `licensethis list` for a list of available licenses")
 	}
 }
 

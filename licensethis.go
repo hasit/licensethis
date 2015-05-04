@@ -80,8 +80,6 @@ func list() {
 	}
 }
 
-// !!---FUTURE---!!
-// alow substrings of license names as arguments too
 func info(licensename string) {
 	infofilepath := getfilepath("licenseinfo.json")
 	file, err1 := ioutil.ReadFile(infofilepath)
@@ -132,8 +130,6 @@ func generate(licensename string) {
 	fmt.Println(licensename)
 }
 
-// !!---FUTURE---!!
-//might have to look into a way to accept more than one license name for `info`.
 func parseArgs(args []string) {
 	if len(args) == 1 {
 		switch args[0] {

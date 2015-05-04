@@ -13,7 +13,9 @@ go get github.com/hasit/licensethis
 Usage
 -----
 
-`$ licensethis <command> [<license-name>]`
+```
+$ licensethis <command> [<license-name>]
+```
 
 Commands
 --------

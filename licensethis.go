@@ -79,6 +79,8 @@ func list() {
 	}
 }
 
+// !!---FUTURE---!!
+// alow substrings of license names as arguments too
 func info(licensename string) {
 	infofilepath := getfilepath("licenseinfo.json")
 	file, err1 := ioutil.ReadFile(infofilepath)

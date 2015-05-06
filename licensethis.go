@@ -130,8 +130,8 @@ func info(licensename string) {
 			fmt.Printf("%v\n", closelicensenames[i])
 		}
 	} else {
-		fmt.Println("No such license was found")
-		fmt.Println("Type `licensethis list` for a list of available licenses")
+		fmt.Println("No such license was found.")
+		fmt.Println("Type `licensethis list` for a list of available licenses.")
 	}
 }
 
@@ -139,7 +139,11 @@ func generate(licensename string) {
 	templatepath := "templates/" + licensename + ".txt"
 	licensetemplatepath := getfilepath(templatepath)
 	file, err1 := ioutil.ReadFile(licensetemplatepath)
-	check(err1)
+	if err1 != nil {
+		fmt.Println("No such license found.")
+		fmt.Println("Type `licensethis list` for a list of available licenses.")
+		return
+	}
 
 	filecontent := string(file)
 
@@ -152,9 +156,15 @@ func generate(licensename string) {
 
 	var user = User{name, nowyear}
 
-	t := template.Must(template.New("user").Parse(filecontent))
-	err3 := t.Execute(os.Stdout, user)
+	licensefile, err3 := os.Create("LICENSE.txt")
 	check(err3)
+	defer licensefile.Close()
+
+	t := template.Must(template.New("user").Parse(filecontent))
+	err4 := t.Execute(licensefile, user)
+	check(err4)
+
+	licensefile.Sync()
 }
 
 func parseArgs(args []string) {

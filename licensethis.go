@@ -36,7 +36,7 @@ func check(e error) {
 
 func getfilepath(filename string) string {
 	gopath := os.Getenv("GOPATH")
-	licensethispath := gopath + "/src/github.com/hasit/licensethis/"
+	licensethispath := gopath + "src/github.com/hasit/licensethis/"
 	filepath := licensethispath + filename
 
 	return filepath
@@ -127,7 +127,9 @@ func info(licensename string) {
 }
 
 func generate(licensename string) {
-	fmt.Println(licensename)
+	templatepath := "templates/" + licensename + ".txt"
+	licensetemplatepath := getfilepath(templatepath)
+	fmt.Println(licensetemplatepath)
 }
 
 func parseArgs(args []string) {

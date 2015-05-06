@@ -20,7 +20,7 @@ $ licensethis <command> [<license-name>]
 Commands
 --------
 
-`help`<br/> Show this help text.
+`help`<br/> Show help text.
 
 `list`<br/> Show a list of all available OSS licenses.
 

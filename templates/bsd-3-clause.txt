@@ -1,34 +1,3 @@
----
-layout: license
-title: BSD 2-clause "Simplified" License
-nickname: Simplified BSD
-category: BSD
-tab-slug: bsd
-hide-from-license-list: true
-redirect_from: /licenses/bsd/
-permalink: /licenses/bsd-2-clause/
-
-description: A permissive license that comes in two variants, the <a href="/licenses/bsd">BSD 2-Clause</a> and <a href="/licenses/bsd-3-clause">BSD 3-Clause</a>. Both have very minute differences to the MIT license.
-
-how: Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders.
-
-source: http://opensource.org/licenses/BSD-2-Clause
-
-required:
-  - include-copyright
-
-permitted:
-  - commercial-use
-  - modifications
-  - distribution
-  - sublicense
-  - private-use
-
-forbidden:
-  - no-liability
-
----
-
 Copyright (c) [year], [fullname]
 All rights reserved.
 
@@ -41,6 +10,10 @@ modification, are permitted provided that the following conditions are met:
 * Redistributions in binary form must reproduce the above copyright notice,
   this list of conditions and the following disclaimer in the documentation
   and/or other materials provided with the distribution.
+
+* Neither the name of [project] nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE

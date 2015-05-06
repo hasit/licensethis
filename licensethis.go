@@ -1,11 +1,14 @@
 package main
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"os"
 	"strings"
+	"text/template"
+	"time"
 )
 
 //Licenselist holds short and long names of licenses
@@ -26,6 +29,12 @@ type Licenseinfo struct {
 		Permitted []string `json:"permitted"`
 		Forbidden []string `json:"forbidden"`
 	} `json:"tags"`
+}
+
+//User holds full name of the user
+type User struct {
+	Fullname string
+	Year     int
 }
 
 func check(e error) {
@@ -129,7 +138,23 @@ func info(licensename string) {
 func generate(licensename string) {
 	templatepath := "templates/" + licensename + ".txt"
 	licensetemplatepath := getfilepath(templatepath)
-	fmt.Println(licensetemplatepath)
+	file, err1 := ioutil.ReadFile(licensetemplatepath)
+	check(err1)
+
+	filecontent := string(file)
+
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Printf("Enter full name: ")
+	name, err2 := reader.ReadString('\n')
+	check(err2)
+
+	nowyear := int(time.Now().Year())
+
+	var user = User{name, nowyear}
+
+	t := template.Must(template.New("user").Parse(filecontent))
+	err3 := t.Execute(os.Stdout, user)
+	check(err3)
 }
 
 func parseArgs(args []string) {

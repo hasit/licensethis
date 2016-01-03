@@ -40,5 +40,5 @@ Examples
 Contributors
 ------------
 
--	Hasit Mistry <br /> Personal: [hasit.github.io](http://hasit.me/) <br /> Github: [hasit](https://github.com/hasit)
+-	Hasit Mistry <br /> Personal: [hasit.me](http://hasit.me/) <br /> Github: [hasit](https://github.com/hasit)
 -	Anuj Deshpande <br /> Personal: [anujdeshpande.com](http://www.anujdeshpande.com/) <br /> Github: [anujdeshpande](https://github.com/anujdeshpande/)

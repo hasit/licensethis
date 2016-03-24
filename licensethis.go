@@ -45,9 +45,11 @@ func check(e error) {
 
 func getfilepath(filename string) string {
 	gopath := os.Getenv("GOPATH")
+	if last := len(gopath) - 1; last >= 0 && gopath[last] != '/' {
+		gopath = gopath + "/"
+	}
 	licensethispath := gopath + "src/github.com/hasit/licensethis/"
 	filepath := licensethispath + filename
-
 	return filepath
 }
 

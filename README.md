@@ -14,7 +14,7 @@ go get github.com/hasit/licensethis
 
 
 ```
-icensethis <command> [<license-name>]
+licensethis <command> [<license-name>]
 ```
 
 ## Commands

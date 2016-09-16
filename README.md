@@ -20,13 +20,21 @@ $ licensethis <command> [<license-name>]
 Commands
 --------
 
-`help`<br/> Show help text.
+`help` - Show help text.
 
-`list`<br/> Show a list of all available OSS licenses.
+![help](/gifs/help.gif)
 
-`info`<br /> Show more information for a license.
+`list` - Show a list of all available OSS licenses.
 
-`generate`<br /> Generate LICENSE.txt file in current folder after asking for author name.
+![list](/gifs/list.gif)
+
+`info` - Show more information for a license.
+
+![info](/gifs/info.gif)
+
+`generate` - Generate LICENSE.txt file in current folder after asking for author name.
+
+![generate](/gifs/generate.gif)
 
 Examples
 --------
